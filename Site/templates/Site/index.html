@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<meta property="og:url"           content="https://codebuddy.com/" />
+	<meta property="og:type"          content="website" />
+	<meta property="og:title"         content="codebuddy - Competitive programming resources and problem recommender" />
+	<meta property="og:description"   content="Analyze your competitive programming profiles and get custom practice problem recommendations" />
+	<meta property="og:image"         content="https://code-drills.com/images/code-drills.png" />
+	
+	<title>codebuddy - Competitive programming resources and problem recommender</title>
+	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+	<link href="/css/common.css?v=1" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js"</script>
+</head>
+
+<body>
+<div id="fb-root"></div>
+<script> </script>
+
+<nav class="navbar navbar-default">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-content">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">
+                Code Buddy
+            </a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="navbar-content">
+
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="/recommender"> Recommender </a></li>
+                <li class=""><a href="/contests"> Contests </a></li>
+                <li class=""><a href="/faq"> FAQ </a></li>
+            </ul>
+
+        </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
+</nav>
+
+
+<div class="container">
+
+<div class="row">
+    <div class="col-md-12">
+        <h2> Practice Problems Recommender </h2>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-12 col-md-push-1">
+        Analyze your profiles on various competitive programming sites and get practice problem recommendations based on your past submissions
+    </div>
+</div>
+
+<br>
+
+<div class="row">
+    <div class="col-md-11 col-md-push-1">
+        <form method="POST" action="search">
+        {% csrf_token %}
+            <div class="form-group">
+                <label for="handles">Enter handle(s) with site prefix</label>
+                <div class="input-group input-group-lg">
+                    <input required pattern = "^( )*(((sp/|cc/|cf/|/)*(\w|\.|-)+(,| )+)*((sp/|cc/|cf/|/)*(\w|\.|-)+))( )*$" type="text" class="form-control" id="handles" name="handles" placeholder="Single handle or space separated handles">
+                    <span class="input-group-btn">
+                        <button type="submit" class="btn btn-primary" id="handles-submit">Analyze</button>
+                    </span>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-10 col-md-push-1">
+        <h3>Input format</h3>
+    </div>
+</div>
+<div id="input-format">
+<div class="row">
+        <div class="col-md-10 col-md-push-1">
+            <ul>
+                <li> Each handle should be prefixed with the site prefix (in lowercase) of that handle </li>
+                <li> Sites included <br>
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th>Site</th>
+                                <th>Prefix</th>
+                                <th>Example</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Codeforces</td>
+                                <td>
+                                    cf/<br>
+                                    <i>no prefix</i>
+                                </td>
+                                <td>
+                                        <code>cf/raypankaj</code>
+<br>
+                                        <code>raypankaj</code>
+
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Codechef</td>
+                                <td> cc/ </td>
+                                <td>    <code>cc/raypankaj</code>
+</td>
+                            </tr>
+                            <tr>
+                                <td>Spoj</td>
+                                <td> sp/ </td>
+                                <td>    <code>sp/raypankaj</code>
+</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </li>
+                <li>
+                    You can apply multiple prefixes to same handle. Useful if the same handle is used across multiple sites<br>
+                    e.g.     <code>cf/sp/cc/ank_13</code>
+
+                </li>
+                <li>
+                    Different handles should be space separated<br>
+                    e.g.     <code>cc/sp/apurvtandon cf/apurvtandon</code>
+
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+    </div>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <footer class="footer">
+        <div class="text-center">
+            <p class="text-muted">
+                <a href="/about">About</a> | 
+                <a href="/faq">FAQ</a>
+            </p>
+            <p class="text-muted">&copy; 2017-2018 Apurv Tandon,Pankaj Ahuja &amp; Ankit Kuthiala</p>
+        </div>
+    </footer>
+    </body>
+
+</html>
