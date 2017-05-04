@@ -1,10 +1,36 @@
 <html>
-<head> <center><h1>{{seach}} Submission Analysis</h1></center> </head>
+<head>
+    <center><h1>{{seach}} Submission Analysis</h1></center>
+</head>
 <body>
 <h1></h1>
 {% load staticfiles %}
 <center><img src="{% static 'Site/foo.png' %}"/></center>
-<h1> Recommendations List </h1>
-<p>{{ rec }}</p>
+<!--<h1> Recommendations List </h1>-->
+<!--<p>{{ rec }}</p>-->
+{% for icon4 in normal_list %}
+<a href="http://codeforces.com/problemset/problem/{{ icon4 }}">{{ icon4 }}</a>
+{% endfor %}
+<br>
+
+{% for icon3 in gym_list %}
+<a href="http://codeforces.com/gym/{{ icon3 }}">{{ icon3 }}</a>
+{% endfor %}
+
+<h1>Score Without Clustering</h1>
+<p>{{ score1 }}</p>
+<br>
+
+<h1> Recommendation Using Clustering </h1>
+{% for icon1 in normal_list2 %}
+<a href="http://codeforces.com/problemset/problem/{{ icon1}}">{{ icon1 }}</a>
+{% endfor %}
+<br>
+{% for icon2 in gym_list2 %}
+<a href="http://codeforces.com/gym/{{ icon2 }}">{{ icon2 }}</a>
+{% endfor %}
+
+<h1> Score With Clustering</h1>
+<p> {{ score2 }} </p>
 </body>
 </html>

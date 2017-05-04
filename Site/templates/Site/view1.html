@@ -1,0 +1,14 @@
+<html>
+<head>
+    <center><h1>{{seach}} Submission Analysis</h1></center>
+</head>
+<body>
+<h1></h1>
+{% load staticfiles %}
+<center><img src="{% static 'Site/foo.png' %}"/></center>
+<h1> Recommendations List </h1>
+{% for ans in rec %}
+<a href="http://www.spoj.com/problems/{{ ans }}">{{ ans }}</a>
+{% endfor %}
+</body>
+</html>
